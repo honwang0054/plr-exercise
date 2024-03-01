@@ -1,0 +1,6 @@
+numpy
+torch>=1.21
+pytictac
+black
+wandb
+optuna

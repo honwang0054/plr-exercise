@@ -4,12 +4,16 @@ from distutils.core import setup
 INSTALL_REQUIRES = [
     "numpy",
     "torch>=1.21",
+    "pytictac",
+    "black",
+    "wandb",
+    "optuna",
 ]
 setup(
     name="plr_exercise",
     version="1.0.0",
-    author="Jonas Frey",
-    author_email="jonfrey@ethz.ch",
+    author="Hongze Wang",
+    author_email="honwang@student.ethz.ch",
     packages=find_packages(),
     python_requires=">=3.7",
     description="A small example package",
