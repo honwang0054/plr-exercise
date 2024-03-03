@@ -10,6 +10,7 @@ import yaml
 import datetime
 import os
 
+
 def save_results(results, file_path):
     with open(file_path, "w") as file:
         yaml.dump(results, file, default_flow_style=False)
@@ -36,18 +37,20 @@ def train(args, model, device, train_loader, optimizer, epoch):
                     loss.item(),
                 )
             )
-            yaml_string = yaml.dump("Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}".format(
+            yaml_string = yaml.dump(
+                "Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}".format(
                     epoch,
                     batch_idx * len(data),
                     len(train_loader.dataset),
                     100.0 * batch_idx / len(train_loader),
                     loss.item(),
-                ), default_flow_style=False)
+                ),
+                default_flow_style=False,
+            )
             train_results.append(yaml_string)
             if args.dry_run:
                 break
     return train_results
-        
 
 
 def test(model, device, test_loader, epoch):
@@ -70,9 +73,12 @@ def test(model, device, test_loader, epoch):
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
         )
     )
-    test_result = yaml.dump("\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n".format(
+    test_result = yaml.dump(
+        "\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n".format(
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
-        ), default_flow_style=False)
+        ),
+        default_flow_style=False,
+    )
     return test_result
 
 
@@ -128,7 +134,7 @@ def main():
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     experiment_name = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
     project_root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-    results_dir = os.path.join(project_root_dir, 'results', experiment_name)
+    results_dir = os.path.join(project_root_dir, "results", experiment_name)
     os.makedirs(results_dir, exist_ok=True)
     results = []
 
@@ -138,7 +144,7 @@ def main():
         results.append(train_results)
         results.append(test_result)
         scheduler.step()
-    
+
     save_results(results, os.path.join(results_dir, "results.yaml"))
 
     if args.save_model:
