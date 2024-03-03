@@ -1,0 +1,49 @@
+{
+    "os": "macOS-14.2.1-arm64-arm-64bit",
+    "python": "3.10.9",
+    "heartbeatAt": "2024-03-03T13:41:27.419892",
+    "startedAt": "2024-03-03T13:41:24.634566",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/apple/git/plr-exercise/scripts/train.py",
+    "codePathLocal": "scripts/train.py",
+    "codePath": "scripts/train.py",
+    "git": {
+        "remote": "git@github.com:honwang0054/plr-exercise.git",
+        "commit": "5232e77577d7f59a59c32d5e22ac1045ef0d4f89"
+    },
+    "email": "honwang0054@gmail.com",
+    "root": "/Users/apple/git/plr-exercise",
+    "host": "student-net-vpn-2878.intern.ethz.ch",
+    "username": "apple",
+    "executable": "/Users/apple/venv/plr/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3228,
+        "min": 600,
+        "max": 3228
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3228,
+            "min": 600,
+            "max": 3228
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 460.4317207336426,
+            "used": 9.430789947509766
+        }
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}

@@ -9,6 +9,7 @@ from plr_exercise.models.cnn import Net
 import yaml
 import datetime
 import os
+import wandb
 
 
 def save_results(results, file_path):
@@ -37,6 +38,7 @@ def train(args, model, device, train_loader, optimizer, epoch):
                     loss.item(),
                 )
             )
+            wandb.log({"train_loss": loss.item()})
             yaml_string = yaml.dump(
                 "Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}".format(
                     epoch,
@@ -67,6 +69,7 @@ def test(model, device, test_loader, epoch):
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     test_loss /= len(test_loader.dataset)
+    wandb.log({"test_loss": test_loss})
 
     print(
         "\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n".format(
@@ -109,6 +112,12 @@ def main():
     use_cuda = not args.no_cuda and torch.cuda.is_available()
 
     torch.manual_seed(args.seed)
+
+    wandb.login()
+    wandb.init(
+        project="plr-exercise",
+        config=args,
+    )
 
     if use_cuda:
         device = torch.device("cuda")
