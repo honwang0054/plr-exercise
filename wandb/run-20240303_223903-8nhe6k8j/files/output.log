@@ -1,0 +1,24 @@
+[33m[W 2024-03-03 22:39:06,134][39m Trial 0 failed with parameters: {'lr': 0.007719812518606107, 'epochs': 1} because of the following error: AttributeError("'Namespace' object has no attribute 'lr'").
+Traceback (most recent call last):
+  File "/Users/apple/venv/plr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/Users/apple/git/plr-exercise/scripts/train.py", line 123, in objective
+    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+AttributeError: 'Namespace' object has no attribute 'lr'
+[33m[W 2024-03-03 22:39:06,135][39m Trial 0 failed with value None.
+Traceback (most recent call last):
+  File "/Users/apple/git/plr-exercise/scripts/train.py", line 146, in <module>
+    study.optimize(objective, n_trials=100)
+  File "/Users/apple/venv/plr/lib/python3.10/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/Users/apple/venv/plr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/Users/apple/venv/plr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/Users/apple/venv/plr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/Users/apple/venv/plr/lib/python3.10/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "/Users/apple/git/plr-exercise/scripts/train.py", line 123, in objective
+    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+AttributeError: 'Namespace' object has no attribute 'lr'

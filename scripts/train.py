@@ -10,6 +10,7 @@ import yaml
 import datetime
 import os
 import wandb
+import optuna
 
 
 def save_results(results, file_path):
@@ -39,20 +40,8 @@ def train(args, model, device, train_loader, optimizer, epoch):
                 )
             )
             wandb.log({"train_loss": loss.item()})
-            yaml_string = yaml.dump(
-                "Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}".format(
-                    epoch,
-                    batch_idx * len(data),
-                    len(train_loader.dataset),
-                    100.0 * batch_idx / len(train_loader),
-                    loss.item(),
-                ),
-                default_flow_style=False,
-            )
-            train_results.append(yaml_string)
             if args.dry_run:
                 break
-    return train_results
 
 
 def test(model, device, test_loader, epoch):
@@ -76,16 +65,10 @@ def test(model, device, test_loader, epoch):
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
         )
     )
-    test_result = yaml.dump(
-        "\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n".format(
-            test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
-        ),
-        default_flow_style=False,
-    )
-    return test_result
+    return test_loss
 
 
-def main():
+def objective(trial):
     # Training settings
     parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
     parser.add_argument(
@@ -94,8 +77,6 @@ def main():
     parser.add_argument(
         "--test-batch-size", type=int, default=1000, metavar="N", help="input batch size for testing (default: 1000)"
     )
-    parser.add_argument("--epochs", type=int, default=2, metavar="N", help="number of epochs to train (default: 14)")
-    parser.add_argument("--lr", type=float, default=1.0, metavar="LR", help="learning rate (default: 1.0)")
     parser.add_argument("--gamma", type=float, default=0.7, metavar="M", help="Learning rate step gamma (default: 0.7)")
     parser.add_argument("--no-cuda", action="store_true", default=False, help="disables CUDA training")
     parser.add_argument("--dry-run", action="store_true", default=False, help="quickly check a single pass")
@@ -118,7 +99,8 @@ def main():
         project="plr-exercise",
         config=args,
     )
-
+    lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
+    epochs = trial.suggest_int("epochs", 1, 10)
     if use_cuda:
         device = torch.device("cuda")
     else:
@@ -138,27 +120,28 @@ def main():
     test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
     model = Net().to(device)
-    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = optim.Adam(model.parameters(), lr=lr)
 
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     experiment_name = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
     project_root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     results_dir = os.path.join(project_root_dir, "results", experiment_name)
     os.makedirs(results_dir, exist_ok=True)
-    results = []
 
-    for epoch in range(args.epochs):
-        train_results = train(args, model, device, train_loader, optimizer, epoch)
-        test_result = test(model, device, test_loader, epoch)
-        results.append(train_results)
-        results.append(test_result)
+    for epoch in range(epochs):
+        train(args, model, device, train_loader, optimizer, epoch)
+        accuracy = test(model, device, test_loader, epoch)
+        trial.report(accuracy, epoch)
         scheduler.step()
+        if trial.should_prune():
+            raise optuna.exceptions.TrialPruned()
+    return accuracy
 
-    save_results(results, os.path.join(results_dir, "results.yaml"))
-
-    if args.save_model:
-        torch.save(model.state_dict(), "mnist_cnn.pt")
+    # if args.save_model:
+    #     torch.save(model.state_dict(), "mnist_cnn.pt")
 
 
 if __name__ == "__main__":
-    main()
+    study = optuna.create_study(direction="minimize")
+    study.optimize(objective, n_trials=20)
+    trial = study.best_trialprint("Best trial:")

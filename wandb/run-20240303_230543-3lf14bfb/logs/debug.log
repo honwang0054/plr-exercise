@@ -1,0 +1,48 @@
+2024-03-03 23:05:43,757 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-03 23:05:43,758 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Configure stats pid to 19190
+2024-03-03 23:05:43,758 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from /Users/apple/.config/wandb/settings
+2024-03-03 23:05:43,758 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from /Users/apple/git/plr-exercise/wandb/settings
+2024-03-03 23:05:43,758 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-03 23:05:43,758 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/Users/apple/git/plr-exercise/scripts/train.py', 'program': '/Users/apple/git/plr-exercise/scripts/train.py'}
+2024-03-03 23:05:43,758 INFO    MainThread:19190 [wandb_init.py:_log_setup():526] Logging user logs to /Users/apple/git/plr-exercise/wandb/run-20240303_230543-3lf14bfb/logs/debug.log
+2024-03-03 23:05:43,758 INFO    MainThread:19190 [wandb_init.py:_log_setup():527] Logging internal logs to /Users/apple/git/plr-exercise/wandb/run-20240303_230543-3lf14bfb/logs/debug-internal.log
+2024-03-03 23:05:43,759 INFO    MainThread:19190 [wandb_init.py:init():566] calling init triggers
+2024-03-03 23:05:43,759 INFO    MainThread:19190 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'batch_size': 64, 'test_batch_size': 1000, 'gamma': 0.7, 'no_cuda': False, 'dry_run': False, 'seed': 1, 'log_interval': 10, 'save_model': False}
+2024-03-03 23:05:43,759 INFO    MainThread:19190 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-03-03 23:06:40,810 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-03 23:06:40,811 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Configure stats pid to 19190
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from /Users/apple/.config/wandb/settings
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from /Users/apple/git/plr-exercise/wandb/settings
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/Users/apple/git/plr-exercise/scripts/train.py', 'program': '/Users/apple/git/plr-exercise/scripts/train.py'}
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_init.py:_log_setup():526] Logging user logs to /Users/apple/git/plr-exercise/wandb/run-20240303_230640-kzy3q4pq/logs/debug.log
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_init.py:_log_setup():527] Logging internal logs to /Users/apple/git/plr-exercise/wandb/run-20240303_230640-kzy3q4pq/logs/debug-internal.log
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_init.py:init():566] calling init triggers
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'batch_size': 64, 'test_batch_size': 1000, 'gamma': 0.7, 'no_cuda': False, 'dry_run': False, 'seed': 1, 'log_interval': 10, 'save_model': False}
+2024-03-03 23:06:40,812 INFO    MainThread:19190 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-03-03 23:15:57,228 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-03 23:15:57,230 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Configure stats pid to 19190
+2024-03-03 23:15:57,230 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from /Users/apple/.config/wandb/settings
+2024-03-03 23:15:57,230 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from /Users/apple/git/plr-exercise/wandb/settings
+2024-03-03 23:15:57,230 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-03 23:15:57,230 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/Users/apple/git/plr-exercise/scripts/train.py', 'program': '/Users/apple/git/plr-exercise/scripts/train.py'}
+2024-03-03 23:15:57,230 INFO    MainThread:19190 [wandb_init.py:_log_setup():526] Logging user logs to /Users/apple/git/plr-exercise/wandb/run-20240303_231557-iqf6pve1/logs/debug.log
+2024-03-03 23:15:57,231 INFO    MainThread:19190 [wandb_init.py:_log_setup():527] Logging internal logs to /Users/apple/git/plr-exercise/wandb/run-20240303_231557-iqf6pve1/logs/debug-internal.log
+2024-03-03 23:15:57,231 INFO    MainThread:19190 [wandb_init.py:init():566] calling init triggers
+2024-03-03 23:15:57,231 INFO    MainThread:19190 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'batch_size': 64, 'test_batch_size': 1000, 'gamma': 0.7, 'no_cuda': False, 'dry_run': False, 'seed': 1, 'log_interval': 10, 'save_model': False}
+2024-03-03 23:15:57,231 INFO    MainThread:19190 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-03-03 23:16:54,993 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-03 23:16:54,994 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Configure stats pid to 19190
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from /Users/apple/.config/wandb/settings
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from /Users/apple/git/plr-exercise/wandb/settings
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/Users/apple/git/plr-exercise/scripts/train.py', 'program': '/Users/apple/git/plr-exercise/scripts/train.py'}
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_init.py:_log_setup():526] Logging user logs to /Users/apple/git/plr-exercise/wandb/run-20240303_231654-n9nmwgxk/logs/debug.log
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_init.py:_log_setup():527] Logging internal logs to /Users/apple/git/plr-exercise/wandb/run-20240303_231654-n9nmwgxk/logs/debug-internal.log
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_init.py:init():566] calling init triggers
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'batch_size': 64, 'test_batch_size': 1000, 'gamma': 0.7, 'no_cuda': False, 'dry_run': False, 'seed': 1, 'log_interval': 10, 'save_model': False}
+2024-03-03 23:16:54,995 INFO    MainThread:19190 [wandb_init.py:init():611] wandb.init() called when a run is still active

@@ -1,0 +1,56 @@
+wandb_version: 1
+
+batch_size:
+  desc: null
+  value: 64
+test_batch_size:
+  desc: null
+  value: 1000
+gamma:
+  desc: null
+  value: 0.7
+no_cuda:
+  desc: null
+  value: false
+dry_run:
+  desc: null
+  value: false
+seed:
+  desc: null
+  value: 1
+log_interval:
+  desc: null
+  value: 10
+save_model:
+  desc: null
+  value: false
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.9
+    cli_version: 0.16.3
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1709476769.0186
+    t:
+      1:
+      - 1
+      - 35
+      - 41
+      - 55
+      2:
+      - 1
+      - 35
+      - 41
+      - 55
+      3:
+      - 16
+      - 23
+      - 24
+      4: 3.10.9
+      5: 0.16.3
+      8:
+      - 4
+      - 5
+      13: darwin-arm64
